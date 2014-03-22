@@ -20,10 +20,9 @@ class LEDStrip:
 		self.strip[led] = color
 
 	def clear(self):
+		rgb = bytearray(3)
 		for i in range(self.size):
-			self.strip[i][0] = 0
-			self.strip[i][1] = 0
-			self.strip[i][2] = 0
+			self.strip[i] = rgb
 		self.update()
 
 	def update(self):

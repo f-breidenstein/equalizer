@@ -16,7 +16,6 @@ class Equalizer():
 							[3,6,13,16,23],
 							[4,5,14,15,24]]
 
-
 	def calcColor(self):
 		block = float(300) / self.colCount
 		for i in range(self.colCount):
@@ -31,13 +30,15 @@ class Equalizer():
 
 	def set(self,col,value):
 		for idx,led in enumerate(self.columnNumbers[col]):
-			print("idx:{}, led:{}".format(idx,led))
+
 			if (idx <= value-1):
-				self.strip.setColor(led,self.columnColor[col])
+				color = self.columnColor[col]
+				self.strip.setColor(led,color)
 			else:
 				break
-		self.strip.update() 
 
 	def clear(self):
 		self.strip.clear()
 
+	def update(self):
+		self.strip.update() 
