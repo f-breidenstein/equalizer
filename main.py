@@ -6,15 +6,18 @@ from time import sleep
 def main():
 	eq = Equalizer.Equalizer(5,5)
 	eq.clear()
+	values = [0,0,0,0,0]
 	while (True):
 		eq.clear()
-		eq.set(0,randrange(6))
-		eq.set(1,randrange(6))
-		eq.set(2,randrange(6))
-		eq.set(3,randrange(6))
-		eq.set(4,randrange(6))
+		for i in range(5):
+			if randrange(2) == 0 and values[i] < 5: # +1
+				values[i] = values[i] + 1
+			elif values[i] > 0: # -1
+				values[i] = values[i] - 1
+			eq.set(i,values[i])
+
 		eq.update()
-		sleep(0.2)
+		sleep(0.15)
 
 
 
